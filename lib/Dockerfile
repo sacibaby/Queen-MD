@@ -2,6 +2,8 @@ FROM node:lts-buster
 
 WORKDIR /root/AlienAlfa/
 
+COPY ./ /root/AlienAlfa/
+
 RUN apt-get update && \
   apt-get install -y \
   ffmpeg \
