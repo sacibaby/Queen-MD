@@ -1,6 +1,6 @@
 require('./config')
 const { default: QueenConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
-const { state, saveState } = useSingleFileAuthState(`./src/Session/${sessionName}.js`)
+const { state, saveState } = useSingleFileAuthState(`./src/Session/${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
@@ -13,7 +13,13 @@ const axios = require('axios')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
-
+const { MakeSession } = require("./lib/session");
+//Thanks to Neeraj-x0 & Alien-Alfa
+if (!fs.existsSync("./media/session.json")) {
+  MakeSession(config.SESSION_ID, `./src/Session/${sessionName}.json`).then(
+    console.log("Vesrion : " + require("./package.json").version)
+  );
+}
 var low
 try {
   low = require('lowdb')
