@@ -13,10 +13,12 @@ const axios = require('axios')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
+//Thanks to Alien-Alfa
 const { MakeSession } = require("./lib/session");
-//Thanks to Neeraj-x0 & Alien-Alfa
+const idsession = process.env.SESSION_ID
+//Thanks to Neeraj-x0
 if (!fs.existsSync("./media/session.json")) {
-  MakeSession(config.SESSION_ID, `./src/Session/${sessionName}.json`).then(
+  MakeSession(idsession, `./src/Session/${sessionName}.json`).then(
     console.log("Vesrion : " + require("./package.json").version)
   );
 }
