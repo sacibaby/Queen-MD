@@ -718,7 +718,7 @@ async function startQueen() {
     return Queen
 }
 
-setTimeout({
+setTimeout(() => {
 startQueen()
 }, 5000)
 
