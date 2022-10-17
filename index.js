@@ -28,7 +28,7 @@ try {
   low = require('lowdb')
 } catch (e) {
   low = require('./lib/lowdb')
-}
+})
 
 const { Low, JSONFile } = low
 const mongoDB = require('./lib/mongoDB')
