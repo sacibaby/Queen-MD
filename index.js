@@ -22,7 +22,6 @@ if (!fs.existsSync("./media/session.json")) {
     console.log("Vesrion : " + require("./package.json").version)
   );
 }
-setTimeout({
 var low;
 try {
   low = require('lowdb')
@@ -719,6 +718,7 @@ async function startQueen() {
     return Queen
 }
 
+setTimeout({
 startQueen()
 }, 5000)
 
