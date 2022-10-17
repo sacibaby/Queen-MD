@@ -23,7 +23,7 @@ if (!fs.existsSync("./media/session.json")) {
   );
 }
 setTimeout({
-var low
+var low;
 try {
   low = require('lowdb')
 } catch (e) {
