@@ -1,5 +1,5 @@
 require('./config')
-const { default: QueenConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
+const { default: QueenConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
 const fs = require('fs')
@@ -13,7 +13,7 @@ const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
 //Thanks to Alien-Alfa
-const { state, saveCreds } = useMultiFileAuthState(`./${sessionName}.json`)
+const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const { MakeSession } = require("./lib/session");
 const idsession = process.env.SESSION_ID
 //Thanks to Neeraj-x0
@@ -277,7 +277,7 @@ async function startQueen() {
         console.log('Connected...', update)
     })
 
-    Queen.ev.on('creds.update', saveCreds)
+    Queen.ev.on('creds.update', saveState)
 
     // Add Other
 
