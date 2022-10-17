@@ -17,7 +17,7 @@ const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, awa
 const { MakeSession } = require("./lib/session");
 const idsession = process.env.SESSION_ID
 //Thanks to Neeraj-x0
-if (!fs.existsSync("./media/session.json")) {
+if (!fs.existsSync(`./${sessionName}.json`)) {
   MakeSession(idsession, `./${sessionName}.json`).then(
     console.log("Vesrion : " + require("./package.json").version)
   );
