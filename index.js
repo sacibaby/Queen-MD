@@ -22,6 +22,8 @@ if (!fs.existsSync(`./session.alfa.json`)) {
     console.log("Vesrion : " + require("./package.json").version)
   );
 }
+
+
 var low;
 try {
   low = require('lowdb')
@@ -69,6 +71,7 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
+sleep(5000)
 async function startQueen() {
     const Queen = QueenConnect({
         logger: pino({ level: 'silent' }),
@@ -718,9 +721,7 @@ async function startQueen() {
     return Queen
 }
 
-setTimeout(() => {
 startQueen()
-}, 5000)
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
