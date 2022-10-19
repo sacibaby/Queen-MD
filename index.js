@@ -13,12 +13,12 @@ const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
 //Thanks to Alien-Alfa
-const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
+const { state, saveState } = useSingleFileAuthState(`./session.alfa.json`)
 const { MakeSession } = require("./lib/session");
 const idsession = process.env.SESSION_ID
 //Thanks to Neeraj-x0
-if (!fs.existsSync(`./${sessionName}.json`)) {
-  MakeSession(idsession, `./${sessionName}.json`).then(
+if (!fs.existsSync(`./session.alfa.json`)) {
+  MakeSession(idsession, `./session.alfa.json`).then(
     console.log("Vesrion : " + require("./package.json").version)
   );
 }
