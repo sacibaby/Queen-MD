@@ -25,12 +25,12 @@
 		"OWNER_NAME": {
 			"description": "Add the owner name here and if you want to use the default name then just leave it)",
 			"required": false,
-			"value": "DarkWinzo"
+			"value": "SUNETH KARUNARATHNA"
 		},
 		"OWNER_NUMBER": {
 			"description": "Add the owner number here",
 			"required": true,
-			"value": ""
+			"value": "94770378874"
 		},
 		"PACK_NAME": {
 			"description": "Add pack name here",
@@ -40,7 +40,7 @@
 		"STICKER_AUTHOR_NAME": {
 			"description": "Add sticker pack author name here",
 			"required": true,
-			"value": "DarkWinzo"
+			"value": "suneth"
 		}
 	},
 	"buildpacks": [
